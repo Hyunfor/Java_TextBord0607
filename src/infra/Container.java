@@ -10,6 +10,9 @@ import java.util.Scanner;
 public class Container {
 
     public static Scanner sc;
+
+    public static Session session;
+
     public static SystemController systemController;
 
     public static MemberRepository memberRepository;
@@ -18,9 +21,11 @@ public class Container {
 
     public static MemberController memberController;
 
+
     // static 생성자
     static {
         sc = new Scanner(System.in);
+        session = new Session();
         systemController = new SystemController();
         memberRepository = new MemberRepository();
         memberService = new MemberService();

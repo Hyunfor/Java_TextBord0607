@@ -29,4 +29,40 @@ public class Request {
         return uriParser.getTarget();
     }
 
+    private Object getSessionAttribute(String key){
+        Session session = Container.session;
+        return session.getAttribute(key);
+    }
+
+    private void setSessionAttribute(String key, Object value){
+        Session session = Container.session;
+        session.setAttribute(key, value);
+    }
+
+    public boolean hasSessionAttribute(String key){
+        Session session = Container.session;
+        return session.hasAttribute(key);
+    }
+
+    public void removeSessionAttribute(String key){
+        Session session = Container.session;
+        session.removeAttribute(key);
+    }
+
+    public void login(String loginId){
+        setSessionAttribute("logonMember", loginId);
+    }
+
+    public boolean isLogon(){
+        return hasSessionAttribute("logonMember");
+    }
+
+    public void logout(){
+        removeSessionAttribute("logonMember");
+    }
+
+    public String getLogonMember(){
+        return (String) getSessionAttribute("LogonMember");
+    }
+
 }
