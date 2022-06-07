@@ -67,4 +67,8 @@ public class UriParser {
         return parameter;
     }
 
+    public String getURI(){
+        return URI;
+    }
+
 }
